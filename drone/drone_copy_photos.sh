@@ -13,11 +13,11 @@ for file in "$source_dir"/*.json; do
     statement=$(jq '.COPIED' "$file") 
 
     # check if a file is previously copied 
-    if [ "$statement" = "true" ]; then 
+    if [ "$statement" = "true" ] 
+    then 
         jq '.' $file 
         echo File "$(basename "$file")" is already in destination folder 
-
-    elif [ "$statement" = null ]; then 
+    else 
         # copy .json file 
         echo "Copying file: $file to $destination_dir" 
         cp "$file" "$destination_dir" 
