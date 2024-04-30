@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Define source and destination directories
-source_dir="/Users/annecathrinekirkegaard/Documents/emli/source"
-destination_dir="/Users/annecathrinekirkegaard/Documents/emli/destination"
+source_dir="./source"
+destination_dir="./destination"
 
 object='{"COPIED": true}' 
 
