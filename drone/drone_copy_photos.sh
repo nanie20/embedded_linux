@@ -24,8 +24,7 @@ for file in "$source_dir"/*.json; do
         
         # add fields to file 
         echo "Adding field to $file" 
-        jq --argjson x "$object" '. += $x' < "$file" > $source_dir/tmp.json 
-        mv $source_dir/tmp.json "$file" 
+        jq --argjson x "$object" --arg y "$destination_dir" '. += $x | .Destination = $y' < "$file" > "$source_dir/tmp.json" && mv "$source_dir/tmp.json" "$file"
 
         # copy .jpg file 
         echo "Copying file: $filename.jpg to $destination_dir" 
