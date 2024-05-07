@@ -29,7 +29,7 @@ while true; do
 
 
     # Insert data into SQLite database
-    sqlite3 LogWifi.db "INSERT INTO wifi_info (Link_quality, Signal_level, Timestamp) VALUES ($link_quality, $signal_level, '$timestamp');"
+    sqlite3 logWifi.db "INSERT INTO wifi_info (Link_quality, Signal_level, Timestamp) VALUES ($link_quality, $signal_level, '$timestamp');"
 
     # Sleep for a specified interval (e.g., 1 minute) before logging again
     sleep 10
