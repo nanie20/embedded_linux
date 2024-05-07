@@ -1,3 +1,4 @@
+  GNU nano 6.2                                                                  wifi_logging.sh                                                                            
 #!/bin/bash
 
 # Function to get the wireless interface name
@@ -34,3 +35,5 @@ while true; do
     # Sleep for a specified interval (e.g., 1 minute) before logging again
     sleep 10
 done
+
+
