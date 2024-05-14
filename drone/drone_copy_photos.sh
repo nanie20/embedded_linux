@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define source and destination directories
-source_dir="./source"
-destination_dir="./destination"
+source_dir="./source" # pi@192.168.10.1:~/photos/
+destination_dir="./destination/."
 
 object='{"COPIED": true}' 
 
@@ -20,7 +20,7 @@ for file in "$source_dir"/*.json; do
     else 
         # copy .json file 
         echo "Copying file: $file to $destination_dir" 
-        cp "$file" "$destination_dir" 
+        cp "$file" "$destination_dir" # copy all files: rsync -avz $source_dir $destination_dir
         
         # add fields to file 
         echo "Adding field to $file" 

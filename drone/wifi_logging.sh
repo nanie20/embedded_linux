@@ -11,7 +11,7 @@ while true; do
     timestamp=$(date "+%Y-%m-%d %H:%M:%S")
     
     # Read WiFi link quality and signal level from /proc/net/wireless
-    wireless_info=$(cat /proc/net/wireless)  # Adjust interface name as needed
+    wireless_info=$(cat /proc/net/wireless | grep $interface)  # Adjust interface name as needed
 
     # Parse relevant data from wireless_info
     interface=$(echo "$wireless_info" | awk '{print $1}')

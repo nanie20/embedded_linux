@@ -22,10 +22,9 @@ check_wifi_ssid() {
          fi
       done
       logged_on_wifi=false
-      echo "wifi not found"
+      echo "Wi-Fi not found"
       return 1 # Raspberry Pi SSID not found    
    done
-
 }
 
 
@@ -39,6 +38,7 @@ log_wifi_stats(){
    echo "Thread log_wifi_stats is running..."
    while [ "$logged_on_wifi" = true ]; do # WHILE the drone is logged onto the wifi
        ./wifi_logging.sh
+       sleep 5
    done
    echo "Thread log_wifi_stats stopped."
 }
@@ -75,11 +75,11 @@ trap 'stop_tasks' SIGINT SIGTERM
 
 # Main script
 if check_wifi_ssid $raspberry_pi_ssid; then
-   echo "Connection bewtween drone and $raspberry_pi_ssid established" 
+   echo "Connection between drone and $raspberry_pi_ssid established" 
 
    sync_time # syncronize time 
    echo "Time synchronized successfully."
-  
+
    # Start tasks in the background
    #log_wifi_stats & # begin logging stats
    #log_wifi_stats_pid=$!
@@ -92,6 +92,7 @@ if check_wifi_ssid $raspberry_pi_ssid; then
 
 else
    echo "Raspberry Pi access point not detected. Trying again."
+   sleep 5
 fi
 
 wait
