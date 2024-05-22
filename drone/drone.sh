@@ -9,7 +9,7 @@ signal_level=0
 
 # Function to check if the Raspberry Pi SSID is in the list of nearby networks
 check_wifi_ssid() {
-
+   echo "Check"
    while [ "$logged_on_wifi" = false ]; do 
       # scan for nearby WiFi networks
       nearby_networks=$(nmcli dev wifi list | awk '{if (NR>1) print $2}')
@@ -18,6 +18,7 @@ check_wifi_ssid() {
       for ssid in $nearby_networks; do
          if [ "$ssid" = "$raspberry_pi_ssid" ]; then
             logged_on_wifi=true
+            echo "I am here"
             return 0 # Raspberry Pi SSID found
          fi
       done
@@ -81,9 +82,9 @@ if check_wifi_ssid $raspberry_pi_ssid; then
    echo "Time synchronized successfully."
 
    # Start tasks in the background
-   #log_wifi_stats & # begin logging stats
-   #log_wifi_stats_pid=$!
-   #echo "log_wifi_stats process started with PID: $log_wifi_stats_pid"
+   log_wifi_stats & # begin logging stats
+   log_wifi_stats_pid=$!
+   echo "log_wifi_stats process started with PID: $log_wifi_stats_pid"
 
 
    copy_photos & # begin copying photos 
