@@ -3,7 +3,7 @@
 # Define SSH credentials and directories
 USER="emli"
 HOST="192.168.10.1"
-PASSWORD=""
+PASSWORD="2250"
 SOURCE_BASE_DIR="/home/emli/photos"
 DESTINATION_DIR="./destination"
 
