@@ -1,36 +1,50 @@
 #!/bin/bash
 
-# Define source and destination directories
-source_dir="./source" # pi@192.168.10.1:~/photos/
-destination_dir="./destination/."
+# Define SSH credentials and directories
+USER="emli"
+HOST="192.168.10.1"
+PASSWORD=""
+SOURCE_BASE_DIR="/home/emli/photos"
+DESTINATION_DIR="./destination"
 
-object='{"COPIED": true}' 
+object='{"COPIED": true}'
 
-# Loop over each file in the source directory
-for file in "$source_dir"/*.json; do 
+# Function to process subdirectories
+process_subdirectories() {
+    subdirs=$(sshpass -p "$PASSWORD" ssh $USER@$HOST "ls -d $SOURCE_BASE_DIR/*/")
 
-    filename=$(basename "$file" .json) 
-    statement=$(jq '.COPIED' "$file") 
+    for subdir in $subdirs; do
+        # Remove the trailing slash from subdir
+        subdir=$(echo $subdir | sed 's:/*$::')
 
-    # check if a file is previously copied 
-    if [ "$statement" = "true" ] 
-    then 
-        jq '.' $file 
-        echo File "$(basename "$file")" is already in destination folder 
-    else 
-        # copy .json file 
-        echo "Copying file: $file to $destination_dir" 
-        cp "$file" "$destination_dir" # copy all files: rsync -avz $source_dir $destination_dir
-        
-        # add fields to file 
-        echo "Adding field to $file" 
-        jq --argjson x "$object" --arg y "$destination_dir" '. += $x | .Destination = $y' < "$file" > "$source_dir/tmp.json" && mv "$source_dir/tmp.json" "$file"
+        # Loop over each JSON file in the current subdirectory
+        json_files=$(sshpass -p "$PASSWORD" ssh $USER@$HOST "ls $subdir/*.json")
+        for file in $json_files; do
+            filename=$(basename "$file" .json)
+            statement=$(sshpass -p "$PASSWORD" ssh $USER@$HOST "jq '.COPIED' \"$file\"")
+            echo $filename
 
-        # copy .jpg file 
-        echo "Copying file: $filename.jpg to $destination_dir" 
-        cp "$source_dir/$filename.jpg" "$destination_dir" 
-    fi
+            # Check if the file is previously copied
+            if [ "$statement" = "true" ]; then
+                echo "File $filename.json is already in destination folder"
+            else
+                # Add fields to the JSON file
+                echo "Adding field to $filename.json"
+                sshpass -p "$PASSWORD" ssh $USER@$HOST "jq --argjson x '$object' --arg y '$DESTINATION_DIR' '. += \$x | .Destination = \$y' < \"$file\" > \"$subdir/tmp.json\" && mv \"$subdir/tmp.json\" \"$file\""
+
+                # Copy the updated JSON file back to the local destination directory
+                #sshpass -p "$PASSWORD" rsync -avz $USER@$HOST:"$file" "$DESTINATION_DIR"
+
+                # Synchronize files from the current subdirectory to the destination directory
+                sshpass -p "$PASSWORD" rsync -avz --progress $USER@$HOST:"$subdir/$filename.*" "$DESTINATION_DIR"
+                echo "Files copied successfully from $subdir to $DESTINATION_DIR"
+            fi
+        done
+    done
+}
+
+# Main loop to keep checking for new subdirectories
+while true; do
+    process_subdirectories
+    sleep 10  # Check for new subdirectories every 60 seconds
 done
-
-
-
