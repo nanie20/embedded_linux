@@ -15,7 +15,7 @@ def annotate_image(image_path):
     with open(image_path, 'rb') as img_file:
         response = requests.post(ollama_api_url, files={"file": img_file})
         response.raise_for_status()
-        return response.json()
+        return response.json()['annotation']
 
 # Function to update JSON metadata with annotations
 def update_metadata(json_path, annotation):
@@ -60,7 +60,7 @@ def process_folder(folder_path, git_repo_path):
                 if os.path.exists(json_path):
                     print(f"Processing {image_path} and updating {json_path}")
                     try:
-                        annotation = annotate_image(image_path)['annotation']
+                        annotation = annotate_image(image_path)
                         update_metadata(json_path, annotation)
                     except Exception as e:
                         print(f"Failed to process {image_path}: {e}")
