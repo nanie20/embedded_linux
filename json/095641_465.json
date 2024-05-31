@@ -1,11 +1,15 @@
 {
-  "File Name": "095641_465.jpg",
-  "Create Date": "2024-05-22 09:56:41.467+02:00",
-  "Create Seconds Epoch": 1716364601.4719167,
-  "Trigger": "Time",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/29",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "095641_465.jpg",
+    "Create Date": "2024-05-22 09:56:41.467+02:00",
+    "Create Seconds Epoch": 1716364601.4719167,
+    "Trigger": "Time",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/29",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. Please share the image with me, and I'll be happy to describe it in detail!"
+    }
 }

@@ -1,11 +1,15 @@
 {
-  "File Name": "102355_104.jpg",
-  "Create Date": "2024-05-22 10:23:55.109+02:00",
-  "Create Seconds Epoch": 1716366235.1191258,
-  "Trigger": "Time",
-  "Subject Distance": "0.2613012804 mm",
-  "Exposure Time": "1/25",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "102355_104.jpg",
+    "Create Date": "2024-05-22 10:23:55.109+02:00",
+    "Create Seconds Epoch": 1716366235.1191258,
+    "Trigger": "Time",
+    "Subject Distance": "0.2613012804 mm",
+    "Exposure Time": "1/25",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. If you'd like to share the image, I'd be happy to help you describe it!"
+    }
 }

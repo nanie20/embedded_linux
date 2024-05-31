@@ -1,11 +1,15 @@
 {
-  "File Name": "112428_154.jpg",
-  "Create Date": "2024-05-22 11:24:28.157+02:00",
-  "Create Seconds Epoch": 1716369868.1614974,
-  "Trigger": "Motion",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/30",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "112428_154.jpg",
+    "Create Date": "2024-05-22 11:24:28.157+02:00",
+    "Create Seconds Epoch": 1716369868.1614974,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/30",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I don't see an image provided. Could you please describe the image or provide more context so I can better understand what you're looking for? I'd be happy to help you with that!"
+    }
 }

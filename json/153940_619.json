@@ -1,11 +1,15 @@
 {
-  "File Name": "153940_619.jpg",
-  "Create Date": "2024-04-30 15:39:40.624+02:00",
-  "Create Seconds Epoch": 1714484380.6332822,
-  "Trigger": "Time",
-  "Subject Distance": "0.668002672",
-  "Exposure Time": "0.06123",
-  "ISO": "400",
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "153940_619.jpg",
+    "Create Date": "2024-04-30 15:39:40.624+02:00",
+    "Create Seconds Epoch": 1714484380.6332822,
+    "Trigger": "Time",
+    "Subject Distance": "0.668002672",
+    "Exposure Time": "0.06123",
+    "ISO": "400",
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you haven't provided an image for me to describe. If you'd like to share the image with me, I'd be happy to help you describe it! You can paste the URL of the image or describe it in your own words."
+    }
 }

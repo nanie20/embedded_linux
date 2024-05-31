@@ -1,11 +1,15 @@
 {
-  "File Name": "122639_916.jpg",
-  "Create Date": "2024-05-31 12:26:39.918+02:00",
-  "Create Seconds Epoch": 1717151199.9227788,
-  "Trigger": "Motion",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/23",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "122639_916.jpg",
+    "Create Date": "2024-05-31 12:26:39.918+02:00",
+    "Create Seconds Epoch": 1717151199.9227788,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but there is no image provided for me to describe. If you'd like to share the image with me, I'd be happy to help you describe it!"
+    }
 }

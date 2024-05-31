@@ -1,9 +1,13 @@
 {
-  "File Name": "132430_047.jpg",
-  "Create Date": "2024-05-31 13:24:30.049+02:00",
-  "Create Seconds Epoch": 1717154670.053876787,
-  "Trigger": "Motion",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/22",
-  "ISO": 200
+    "File Name": "132430_047.jpg",
+    "Create Date": "2024-05-31 13:24:30.049+02:00",
+    "Create Seconds Epoch": 1717154670.0538769,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/22",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I'm a large language model, I don't have the capability to see or access images. You can try describing the image yourself, and I'll do my best to help you explore its meaning or significance. Please provide more context or details about the image if you'd like!"
+    }
 }

@@ -1,9 +1,13 @@
 {
-  "File Name": "130725_592.jpg",
-  "Create Date": "2024-05-31 13:07:25.594+02:00",
-  "Create Seconds Epoch": 1717153645.598880183,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/23",
-  "ISO": 200
+    "File Name": "130725_592.jpg",
+    "Create Date": "2024-05-31 13:07:25.594+02:00",
+    "Create Seconds Epoch": 1717153645.5988803,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I don't see an image attached to your message. Could you please provide more context or describe the image yourself? I'll do my best to help you analyze it!"
+    }
 }

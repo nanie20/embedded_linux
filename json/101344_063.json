@@ -1,11 +1,15 @@
 {
-  "File Name": "101344_063.jpg",
-  "Create Date": "2024-05-22 10:13:44.065+02:00",
-  "Create Seconds Epoch": 1716365624.07021,
-  "Trigger": "Motion",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/29",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "101344_063.jpg",
+    "Create Date": "2024-05-22 10:13:44.065+02:00",
+    "Create Seconds Epoch": 1716365624.07021,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/29",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. Please share the image you'd like me to describe, and I'll do my best to give you a detailed description of what's in it!"
+    }
 }

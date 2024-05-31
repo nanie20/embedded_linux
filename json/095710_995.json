@@ -1,11 +1,15 @@
 {
-  "File Name": "095710_995.jpg",
-  "Create Date": "2024-05-22 09:57:10.997+02:00",
-  "Create Seconds Epoch": 1716364631.0014033,
-  "Trigger": "Motion",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/29",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "095710_995.jpg",
+    "Create Date": "2024-05-22 09:57:10.997+02:00",
+    "Create Seconds Epoch": 1716364631.0014033,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/29",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. If you'd like to share the image with me, I'd be happy to help describe it! Please feel free to paste the image URL or attach it, and I'll do my best to describe what I see."
+    }
 }

@@ -1,11 +1,15 @@
 {
-  "File Name": "095724_871.jpg",
-  "Create Date": "2024-05-22 09:57:24.873+02:00",
-  "Create Seconds Epoch": 1716364644.8781686,
-  "Trigger": "Motion",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/30",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "095724_871.jpg",
+    "Create Date": "2024-05-22 09:57:24.873+02:00",
+    "Create Seconds Epoch": 1716364644.8781686,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/30",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I don't see an image provided. Please provide me with the image you'd like me to describe, and I'll do my best to paint a verbal picture for you!"
+    }
 }

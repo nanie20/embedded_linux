@@ -1,9 +1,13 @@
 {
-  "File Name": "132453_350.jpg",
-  "Create Date": "2024-05-31 13:24:53.352+02:00",
-  "Create Seconds Epoch": 1717154693.357062102,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/22",
-  "ISO": 200
+    "File Name": "132453_350.jpg",
+    "Create Date": "2024-05-31 13:24:53.352+02:00",
+    "Create Seconds Epoch": 1717154693.357062,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/22",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you haven't provided an image for me to describe. If you would like to share the image with me, I'd be happy to help you describe it! You can provide a URL or upload the image, and I'll do my best to give you a detailed description of what I see."
+    }
 }

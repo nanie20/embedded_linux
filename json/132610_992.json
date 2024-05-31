@@ -1,9 +1,13 @@
 {
-  "File Name": "132610_992.jpg",
-  "Create Date": "2024-05-31 13:26:10.994+02:00",
-  "Create Seconds Epoch": 1717154770.998789430,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/23",
-  "ISO": 200
+    "File Name": "132610_992.jpg",
+    "Create Date": "2024-05-31 13:26:10.994+02:00",
+    "Create Seconds Epoch": 1717154770.9987895,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I'm a large language model, I don't have the ability to see or access images. I can only respond based on text input. If you would like to describe the image to me, I'd be happy to help! Just type out your description and I'll do my best to understand what you're saying."
+    }
 }

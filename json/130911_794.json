@@ -1,9 +1,13 @@
 {
-  "File Name": "130911_794.jpg",
-  "Create Date": "2024-05-31 13:09:11.797+02:00",
-  "Create Seconds Epoch": 1717153751.801360826,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/17",
-  "ISO": 287
+    "File Name": "130911_794.jpg",
+    "Create Date": "2024-05-31 13:09:11.797+02:00",
+    "Create Seconds Epoch": 1717153751.8013608,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/17",
+    "ISO": 287,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you haven't provided an image for me to describe. If you'd like to share the image with me, I'd be happy to help you describe it! Just paste the link or upload the image, and I'll do my best to provide a detailed description. \ud83d\ude0a"
+    }
 }

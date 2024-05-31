@@ -1,9 +1,13 @@
 {
-  "File Name": "123634_709.jpg",
-  "Create Date": "2024-05-31 12:36:34.711+02:00",
-  "Create Seconds Epoch": 1717151794.716587523,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/23",
-  "ISO": 200
+    "File Name": "123634_709.jpg",
+    "Create Date": "2024-05-31 12:36:34.711+02:00",
+    "Create Seconds Epoch": 1717151794.7165875,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. If you'd like to share the image with me, I'd be happy to try and describe it!"
+    }
 }

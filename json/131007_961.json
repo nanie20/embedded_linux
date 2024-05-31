@@ -1,9 +1,13 @@
 {
-  "File Name": "131007_961.jpg",
-  "Create Date": "2024-05-31 13:10:07.963+02:00",
-  "Create Seconds Epoch": 1717153807.968017648,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/22",
-  "ISO": 200
+    "File Name": "131007_961.jpg",
+    "Create Date": "2024-05-31 13:10:07.963+02:00",
+    "Create Seconds Epoch": 1717153807.9680176,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/22",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I don't see an image attached to your message. Can you please describe the image to me? What is it about (e.g., a person, place, thing, or scene)? Is there any specific detail or feature that stands out to you? The more information you provide, the better I can help you with your description!"
+    }
 }

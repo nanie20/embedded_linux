@@ -1,9 +1,13 @@
 {
-  "File Name": "131428_649.jpg",
-  "Create Date": "2024-05-31 13:14:28.652+02:00",
-  "Create Seconds Epoch": 1717154068.656755286,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/23",
-  "ISO": 200
+    "File Name": "131428_649.jpg",
+    "Create Date": "2024-05-31 13:14:28.652+02:00",
+    "Create Seconds Epoch": 1717154068.6567552,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but I'm a large language model, I don't have the capability to see or access external images. If you'd like to describe the image to me, I can try to help you explore it further!"
+    }
 }

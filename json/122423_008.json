@@ -1,11 +1,15 @@
 {
-  "File Name": "122423_008.jpg",
-  "Create Date": "2024-05-31 12:24:23.011+02:00",
-  "Create Seconds Epoch": 1717151063.0156858,
-  "Trigger": "Time",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/22",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "122423_008.jpg",
+    "Create Date": "2024-05-31 12:24:23.011+02:00",
+    "Create Seconds Epoch": 1717151063.0156858,
+    "Trigger": "Time",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/22",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. Please share the image you'd like me to describe, and I'll do my best to provide a vivid description of what it depicts!"
+    }
 }

@@ -1,11 +1,15 @@
 {
-  "File Name": "095706_710.jpg",
-  "Create Date": "2024-05-22 09:57:06.712+02:00",
-  "Create Seconds Epoch": 1716364626.7169452,
-  "Trigger": "Time",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/29",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "095706_710.jpg",
+    "Create Date": "2024-05-22 09:57:06.712+02:00",
+    "Create Seconds Epoch": 1716364626.7169452,
+    "Trigger": "Time",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/29",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. If you'd like to describe the image yourself, I can help guide the process by asking questions about it. Alternatively, if you have a URL or other means of sharing the image, I'd be happy to try and assist you in describing it!"
+    }
 }

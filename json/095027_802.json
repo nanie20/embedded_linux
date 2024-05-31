@@ -1,11 +1,15 @@
 {
-  "File Name": "095027_802.jpg",
-  "Create Date": "2024-05-22 09:50:27.805+02:00",
-  "Create Seconds Epoch": 1716364227.8092358,
-  "Trigger": "Time",
-  "Subject Distance": "0.3300330033 mm",
-  "Exposure Time": "1/31",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "095027_802.jpg",
+    "Create Date": "2024-05-22 09:50:27.805+02:00",
+    "Create Seconds Epoch": 1716364227.8092358,
+    "Trigger": "Time",
+    "Subject Distance": "0.3300330033 mm",
+    "Exposure Time": "1/31",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. Please share the image with me, and I'll do my best to provide a detailed description of it!"
+    }
 }

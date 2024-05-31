@@ -1,9 +1,13 @@
 {
-  "File Name": "131107_873.jpg",
-  "Create Date": "2024-05-31 13:11:07.875+02:00",
-  "Create Seconds Epoch": 1717153867.880117517,
-  "Trigger": "Time",
-  "Subject Distance": "0.4139072848 mm",
-  "Exposure Time": "1/17",
-  "ISO": 258
+    "File Name": "131107_873.jpg",
+    "Create Date": "2024-05-31 13:11:07.875+02:00",
+    "Create Seconds Epoch": 1717153867.8801174,
+    "Trigger": "Time",
+    "Subject Distance": "0.4139072848 mm",
+    "Exposure Time": "1/17",
+    "ISO": 258,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image for me to describe. Please share the image with me, and I'll do my best to describe it in detail!"
+    }
 }

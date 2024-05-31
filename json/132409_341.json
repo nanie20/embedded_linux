@@ -1,9 +1,13 @@
 {
-  "File Name": "132409_341.jpg",
-  "Create Date": "2024-05-31 13:24:09.343+02:00",
-  "Create Seconds Epoch": 1717154649.347848817,
-  "Trigger": "Motion",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/22",
-  "ISO": 200
+    "File Name": "132409_341.jpg",
+    "Create Date": "2024-05-31 13:24:09.343+02:00",
+    "Create Seconds Epoch": 1717154649.347849,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/22",
+    "ISO": 200,
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but there is no image provided for me to describe. Please provide the image you would like me to describe, and I will do my best to paint a verbal picture of it."
+    }
 }

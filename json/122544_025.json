@@ -1,11 +1,15 @@
 {
-  "File Name": "122544_025.jpg",
-  "Create Date": "2024-05-31 12:25:44.027+02:00",
-  "Create Seconds Epoch": 1717151144.0318468,
-  "Trigger": "Motion",
-  "Subject Distance": "1 mm",
-  "Exposure Time": "1/21",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "122544_025.jpg",
+    "Create Date": "2024-05-31 12:25:44.027+02:00",
+    "Create Seconds Epoch": 1717151144.0318468,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/21",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you haven't provided an image for me to describe. If you'd like to share the image with me, I'd be happy to try and describe it in detail! Just copy and paste the link or upload the image, and I'll do my best to bring it to life with words."
+    }
 }

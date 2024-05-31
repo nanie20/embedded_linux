@@ -1,11 +1,15 @@
 {
-  "File Name": "101431_407.jpg",
-  "Create Date": "2024-05-22 10:14:31.409+02:00",
-  "Create Seconds Epoch": 1716365671.413798,
-  "Trigger": "Motion",
-  "Subject Distance": "infm",
-  "Exposure Time": "1/29",
-  "ISO": 200,
-  "COPIED": true,
-  "Destination": "./destination"
+    "File Name": "101431_407.jpg",
+    "Create Date": "2024-05-22 10:14:31.409+02:00",
+    "Create Seconds Epoch": 1716365671.413798,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/29",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. If you'd like to describe a specific image or request my assistance in describing one, please feel free to share it with me! I'm here to help and would be happy to assist."
+    }
 }
