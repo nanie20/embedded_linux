@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 1ce5654d73db0f445abe48191dea9899e6ead257 pandr20 <71690281+pandr20@users.noreply.github.com> 1715675141 +0200	commit (initial): Started next js project
+1ce5654d73db0f445abe48191dea9899e6ead257 c4734e84bc77733a3273bf8f81d29146eb1a6746 pandr20 <71690281+pandr20@users.noreply.github.com> 1715678425 +0200	commit: Added routes api
+c4734e84bc77733a3273bf8f81d29146eb1a6746 d060f55ae144b8a3028efaf6c9b497d800ef6d07 pandr20 <71690281+pandr20@users.noreply.github.com> 1715680792 +0200	commit: Images are now visible
+d060f55ae144b8a3028efaf6c9b497d800ef6d07 44e5c5890ec1081d96b64ab81b046fd35faded80 pandr20 <71690281+pandr20@users.noreply.github.com> 1715681155 +0200	commit: Change style and added package
+44e5c5890ec1081d96b64ab81b046fd35faded80 1d011fb0ad6a04c98778f0a33d0b3516550068c5 pandr20 <71690281+pandr20@users.noreply.github.com> 1715786576 +0200	commit: Changed styles and routes api
