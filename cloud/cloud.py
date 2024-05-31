@@ -11,11 +11,23 @@ git_user_name = "pandr20"
 git_user_email = "pandr20@student.sdu.dk"
 branch_name = "Cloud"
 
+# Function to validate JSON content
+def validate_json(data):
+    try:
+        json.dumps(data)
+        return True
+    except (TypeError, ValueError) as e:
+        print(f"Invalid JSON data: {e}")
+        return False
+
 # Function to annotate a JSON file using the Ollama API
 def annotate_json(data):
-    response = requests.post(ollama_api_url, json=data)
-    response.raise_for_status()
-    return response.json()['annotation']
+    if validate_json(data):
+        response = requests.post(ollama_api_url, json=data)
+        response.raise_for_status()
+        return response.json()['annotation']
+    else:
+        raise ValueError("Invalid JSON data")
 
 # Function to update JSON metadata with annotations
 def update_metadata(json_path, annotation):

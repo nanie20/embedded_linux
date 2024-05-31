@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 @app.route('/annotate', methods=['POST'])
 def annotate():
-    file = request.files['file']
-    if file:
+    data = request.get_json()
+    if data:
         # For simplicity, we will assume the annotation is generated from a fixed prompt
         prompt = "Describe the following image: [IMAGE]"
-        
+
         # Call the Ollama model through subprocess
         process = subprocess.Popen(
             ['ollama', 'run', 'llama3'],
@@ -23,7 +23,7 @@ def annotate():
         # Return the annotation from Ollama model
         return jsonify({"annotation": stdout.strip()})
     else:
-        return jsonify({"error": "No file provided"}), 400
+        return jsonify({"error": "No JSON data provided"}), 400
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
