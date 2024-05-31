@@ -41,6 +41,9 @@ def commit_and_push(repo_path, commit_message, branch_name):
         # Commit changes
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)
 
+        # Pull the latest changes from the remote branch
+        subprocess.run(['git', 'pull', 'origin', branch_name], check=True)
+
         # Push changes using GitHub CLI
         subprocess.run(['gh', 'repo', 'sync', '--branch', branch_name], check=True)
         
