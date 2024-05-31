@@ -4,7 +4,8 @@
 base_directory="/home/emli/photos"
 
 # MQTT setup
-MQTT_SERVER="10.0.0.10"
+MQTT_SERVER="localhost"
+MQTT_PORT="1883"
 MQTT_TOPIC_ANIMAL="/feeds/animal"
 mqtt_username="emli13"
 mqtt_pw="emli13"
@@ -103,21 +104,31 @@ EOF
 }
 
 # Function to handle animal detection JSON message
+#on_animal_message() {
+#  local message="$1"
+#  echo "Received animal detection data: $message"
+
+  # Extract detection status from JSON (assuming it has a field "animal_detected")
+#  local animal_detected=$(echo $message | jq '.animal_detected')
+
+  # Check if animal is detected
+#  if [ "$animal_detected" -eq 1 ]; then
+#    echo "Animal detected, taking photo..."
+#    take_photo "External"
+#  else
+    echo "No animal detected, no action."
+#  fi
+#}
+
 on_animal_message() {
   local message="$1"
   echo "Received animal detection data: $message"
 
-  # Extract detection status from JSON (assuming it has a field "animal_detected")
-  local animal_detected=$(echo $message | jq '.animal_detected')
-
-  # Check if animal is detected
-  if [ "$animal_detected" -eq 1 ]; then
-    echo "Animal detected, taking photo..."
-    take_photo "External"
-  else
-    echo "No animal detected, no action."
-  fi
+  # Always take a photo when a message is received
+  echo "Taking photo due to received message..."
+  take_photo "External"
 }
+
 
 # Function to capture a photo every 5 minutes with Trigger set to Time
 capture_time_photos() {
@@ -155,7 +166,7 @@ capture_motion_photos &
 motion_photos_pid=$!
 
 # Subscribe to the animal detection topic and handle messages
-mosquitto_sub -h $MQTT_SERVER -t $MQTT_TOPIC_ANIMAL -u $mqtt_username -P $mqtt_pw | while read MSG; do
+mosquitto_sub -h $MQTT_SERVER -p $MQTT_PORT -t $MQTT_TOPIC_ANIMAL -u $mqtt_username -P $mqtt_pw | while read MSG; do
   if ! $running; then
     break
   fi
