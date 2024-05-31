@@ -5,8 +5,7 @@ import subprocess
 
 # Configuration
 repo_root_path = "/Users/patrickandreasen/Documents/SideProjects/embedded_linux/cloud"
-json_folder_name = "json"
-json_folder_path = os.path.join(repo_root_path, json_folder_name)
+json_folder_path = "/Users/patrickandreasen/Documents/SideProjects/embedded_linux/json"
 ollama_api_url = "http://localhost:8080/annotate"  # Ensure this matches your Flask server's port
 git_user_name = "pandr20"
 git_user_email = "pandr20@student.sdu.dk"
@@ -76,13 +75,14 @@ def process_folder(folder_path, git_repo_path):
                 json_path = os.path.join(root, file)
                 print(f"Processing {json_path}")
                 try:
-                    # Assuming a corresponding image file exists in the same folder
-                    image_path = os.path.splitext(json_path)[0] + '.jpg'
-                    if not os.path.exists(image_path):
-                        image_path = os.path.splitext(json_path)[0] + '.jpeg'
-                    if not os.path.exists(image_path):
-                        image_path = os.path.splitext(json_path)[0] + '.png'
-                    if not os.path.exists(image_path):
+                    # Find the corresponding image file for the JSON file
+                    image_path = None
+                    for ext in ['.jpg', '.jpeg', '.png']:
+                        possible_image_path = os.path.splitext(json_path)[0] + ext
+                        if os.path.exists(possible_image_path):
+                            image_path = possible_image_path
+                            break
+                    if image_path is None:
                         print(f"No corresponding image found for {json_path}")
                         continue
 
