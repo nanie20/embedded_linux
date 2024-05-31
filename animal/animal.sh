@@ -3,14 +3,42 @@
 # Define base directory for photo storage
 base_directory="/home/emli/photos"
 
-# MQTT settings
-mqtt_broker="192.168.10.1"
-mqtt_topic="/feeds/animal"
+# MQTT setup
+MQTT_SERVER="10.0.0.10"
+MQTT_TOPIC_ANIMAL="/feeds/animal"
 mqtt_username="emli13"
 mqtt_pw="emli13"
 
-# Command to subscribe and receive a message
-subscribe_command="mosquitto_sub -h $mqtt_broker -t $mqtt_topic -C 1 -u $mqtt_username -P $mqtt_pw"
+# Flag to control the script execution
+running=true
+
+# PIDs for background processes
+time_photos_pid=0
+motion_photos_pid=0
+mqtt_animal_pid=0
+
+# Function to handle cleanup on exit
+cleanup() {
+  echo "Cleaning up and exiting..."
+  running=false
+
+  # Kill background processes
+  if [ $time_photos_pid -ne 0 ]; then
+    kill $time_photos_pid
+  fi
+  if [ $motion_photos_pid -ne 0 ]; then
+    kill $motion_photos_pid
+  fi
+  if [ $mqtt_animal_pid -ne 0 ]; then
+    kill $mqtt_animal_pid
+  fi
+
+  # Ensure Python script terminates
+  pkill -f motion_detect.py
+}
+
+# Trap SIGINT (Ctrl+C) and call cleanup
+trap cleanup SIGINT
 
 # Function to take a photo and create metadata
 take_photo() {
@@ -21,71 +49,120 @@ take_photo() {
   local date_time_with_ms=$(date "+%Y-%m-%d %H:%M:%S.$milliseconds+02:00")
   local seconds_since_epoch=$(date +%s.%N)
   local photo_directory="${base_directory}/${current_date}"
+
   mkdir -p "$photo_directory"
 
-  local filename="${current_time}.jpg"
-  local full_path="${photo_directory}/${filename}"
+  local photo_filename="${current_time}.jpg"
+  local json_filename="${current_time}.json"
+  local photo_path="${photo_directory}/${photo_filename}"
+  local json_path="${photo_directory}/${json_filename}"
 
-  # Using rpi-cam to take the photo
-  rpicam-still -o "$full_path"
+  # Capture photo using rpicam-still
+  if ! rpicam-still -t 0.01 -o "$photo_path"; then
+    echo "Error: Failed to capture photo with rpicam-still"
+    return
+  fi
 
   # Extract EXIF data using exiftool
-  local subject_distance=$(exiftool -SubjectDistance -b "$full_path")
-  local exposure_time=$(exiftool -ExposureTime -b "$full_path")
-  local iso=$(exiftool -ISO -b "$full_path")
+  local exif_data
+  if ! exif_data=$(exiftool "$photo_path"); then
+    echo "Error: Failed to extract EXIF data from $photo_path" >> /home/emli/photos/missing_exif.log
+    return
+  fi
 
-  # Create the JSON metadata file
-  local json_file="${photo_directory}/${filename%.jpg}.json"
-  cat > "$json_file" <<EOF
+  # Parse EXIF data
+  local subject_distance=$(echo "$exif_data" | grep "Subject Distance" | awk -F': ' '{print $2}' | xargs)
+  local exposure_time=$(echo "$exif_data" | grep "Exposure Time" | awk -F': ' '{print $2}' | xargs)
+  local iso=$(echo "$exif_data" | grep "ISO" | awk -F': ' '{print $2}' | xargs)
+
+  # Set default values if EXIF data is missing
+  subject_distance=${subject_distance:-"N/A"}
+  exposure_time=${exposure_time:-"N/A"}
+  iso=${iso:-"N/A"}
+
+  # Create JSON metadata
+  cat <<EOF > "$json_path"
 {
-  "File Name": "$filename",
+  "File Name": "$photo_filename",
   "Create Date": "$date_time_with_ms",
   "Create Seconds Epoch": $seconds_since_epoch,
   "Trigger": "$trigger",
-  "Subject Distance": "${subject_distance:-Unknown}",
-  "Exposure Time": "${exposure_time:-Unknown}",
-  "ISO": "${iso:-Unknown}"
+  "Subject Distance": "${subject_distance}m",
+  "Exposure Time": "$exposure_time",
+  "ISO": $iso
 }
 EOF
-  echo "Photo and metadata saved: $full_path and $json_file"
-}
 
-# Function to handle motion detection
-check_motion() {
-  local img1=$1
-  local img2=$2
-  local motion_detected=$(python3 ~/MotionDetect.py "$img1" "$img2")
-  if [[ "$motion_detected" == "Motion detected" ]]; then
-    take_photo "Motion"
+  # Log if any EXIF data was missing
+  if [ "$subject_distance" = "N/A" ] || [ "$exposure_time" = "N/A" ] || [ "$iso" = "N/A" ]; then
+    echo "Warning: Missing EXIF data for $photo_path" >> /home/emli/photos/missing_exif.log
+    echo "Subject Distance: $subject_distance" >> /home/emli/photos/missing_exif.log
+    echo "Exposure Time: $exposure_time" >> /home/emli/photos/missing_exif.log
+    echo "ISO: $iso" >> /home/emli/photos/missing_exif.log
   fi
 }
 
-# Main loop to handle triggers
-last_image=""
-last_time_capture=$(date +%s)
+# Function to handle animal detection JSON message
+on_animal_message() {
+  local message="$1"
+  echo "Received animal detection data: $message"
 
-while true; do
-  current_time=$(date +%s)
+  # Extract detection status from JSON (assuming it has a field "animal_detected")
+  local animal_detected=$(echo $message | jq '.animal_detected')
 
-  # Capture a photo every 5 minutes with "Time" trigger
-  if (( current_time >= last_time_capture + 300 )); then
-    take_photo "Time"
-    last_time_capture=$current_time
-  fi
-
-  # Capture a photo every second for motion detection
-  current_image=$(take_photo "Time")
-
-  # Check for motion if there is a last image to compare
-  if [[ -n "$last_image" ]]; then
-    check_motion "$last_image" "$current_image"
-  fi
-  last_image="$current_image"
-
-  # Check for external trigger via MQTT
-  if external_message=$(timeout 1 $subscribe_command); then
+  # Check if animal is detected
+  if [ "$animal_detected" -eq 1 ]; then
+    echo "Animal detected, taking photo..."
     take_photo "External"
+  else
+    echo "No animal detected, no action."
   fi
+}
 
-  sleep 1  # Wait for 1 second before next loop iteration
-done
+# Function to capture a photo every 5 minutes with Trigger set to Time
+capture_time_photos() {
+  while $running; do
+    take_photo "Time"
+    sleep 300
+  done
+}
+
+# Function to capture photos approximately every second and check for motion
+capture_motion_photos() {
+  local previous_photo=""
+  while $running; do
+    take_photo "Time"
+    current_photo=$(ls -t ${base_directory}/*/*.jpg | head -n 1)
+
+    if [ -n "$previous_photo" ]; then
+      # Compare current and previous photos to detect motion
+      if python3 /home/emli/motion_detect.py "$previous_photo" "$current_photo"; then
+        take_photo "Motion"
+      fi
+    fi
+
+    previous_photo="$current_photo"
+    sleep 1
+  done
+}
+
+# Start capturing photos every 5 minutes
+capture_time_photos &
+time_photos_pid=$!
+
+# Start capturing photos approximately every second and check for motion
+capture_motion_photos &
+motion_photos_pid=$!
+
+# Subscribe to the animal detection topic and handle messages
+mosquitto_sub -h $MQTT_SERVER -t $MQTT_TOPIC_ANIMAL -u $mqtt_username -P $mqtt_pw | while read MSG; do
+  if ! $running; then
+    break
+  fi
+  echo "New Animal Detection Message Received"
+  on_animal_message "$MSG"
+done &
+mqtt_animal_pid=$!
+
+# Wait for background processes to finish
+wait
