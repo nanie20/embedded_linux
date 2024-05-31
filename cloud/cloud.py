@@ -38,17 +38,25 @@ def commit_and_push(repo_path, commit_message, branch_name):
         # Stage all changes
         subprocess.run(['git', 'add', '.'], check=True)
 
+        # Check if there are any changes to commit
+        result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True)
+        if result.stdout.strip() == "":
+            print("No changes to commit.")
+            return
+
         # Commit changes
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)
 
         # Pull the latest changes from the remote branch
         subprocess.run(['git', 'pull', 'origin', branch_name], check=True)
 
-        # Push changes using GitHub CLI
-        subprocess.run(['gh', 'repo', 'sync', '--branch', branch_name], check=True)
-        
-        # Push changes using git for fallback
-        subprocess.run(['git', 'push', 'origin', branch_name], check=True)
+        # Force push changes using GitHub CLI
+        subprocess.run(['gh', 'repo', 'sync', '--branch', branch_name, '--force'], check=True)
+
+        # Force push changes using git for fallback
+        subprocess.run(['git', 'push', 'origin', branch_name, '--force'], check=True)
+
+        print("Changes pushed successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Git error: {e}")
 
@@ -64,6 +72,7 @@ def process_folder(folder_path, git_repo_path):
                     try:
                         annotation = annotate_image(image_path)
                         update_metadata(json_path, annotation)
+                        print(f"Updated {json_path} with annotation.")
                     except Exception as e:
                         print(f"Failed to process {image_path}: {e}")
 
