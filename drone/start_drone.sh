@@ -6,9 +6,14 @@ stop_tasks() {
     stop=true
 
 
-    if [ ! -z "$drone_pid" ]; then
-        kill $drone_pid 2>/dev/null
+    # if [ ! -z "$drone_pid" ]; then
+    #     kill $drone_pid 2>/dev/null
+    # fi
+
+    if [ $drone_pid -ne 0 ]; then
+        kill $drone_pid
     fi
+
     exit 0
 }
 
