@@ -5,7 +5,7 @@ import subprocess
 
 # Configuration
 repo_root_path = "/Users/patrickandreasen/Documents/SideProjects/embedded_linux/cloud"
-photos_folder_name = "photos"
+photos_folder_name = "json"
 photos_folder_path = os.path.join(repo_root_path, photos_folder_name)
 ollama_api_url = "http://localhost:8080/annotate"  # Ensure this matches your Flask server's port
 git_user_name = "pandr20"
