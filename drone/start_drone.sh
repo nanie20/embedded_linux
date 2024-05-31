@@ -4,12 +4,7 @@ stop=false
 
 stop_tasks() {
     stop=true
-
-
-    # if [ ! -z "$drone_pid" ]; then
-    #     kill $drone_pid 2>/dev/null
-    # fi
-
+    
     if [ $drone_pid -ne 0 ]; then
         kill $drone_pid
     fi
@@ -24,7 +19,7 @@ start_drone() {
     while ! $stop; do
         ./drone.sh &
         drone_pid=$!
-        #wait $drone_pid
+        echo "drone process started with PID: $drone_pid"
         sleep 5
     done
 }

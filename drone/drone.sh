@@ -51,9 +51,17 @@ copy_photos(){
 
 # Function to stop child task processes
 stop_tasks() {
-    echo "Stopping all child processes"
-    pkill -P $$
-    exit 0
+    # echo "Stopping all child processes"
+    # pkill -P $$
+    # exit 0
+
+    if [ $log_wifi_stats_pid -ne 0 ]; then
+       kill $log_wifi_stats_pid
+    fi
+    if [ $copy_photos_pid-ne 0 ]; then
+       kill $copy_photos_pid
+    fi
+
 }
 
 # Trap SIGTERM and SIGINT signals and call stop_tasks function
