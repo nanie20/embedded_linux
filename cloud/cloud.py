@@ -11,12 +11,11 @@ git_user_name = "pandr20"
 git_user_email = "pandr20@student.sdu.dk"
 branch_name = "Cloud"
 
-# Function to annotate an image using the Ollama API
-def annotate_image(image_path):
-    with open(image_path, 'rb') as img_file:
-        response = requests.post(ollama_api_url, files={"file": img_file})
-        response.raise_for_status()
-        return response.json()['annotation']
+# Function to annotate a JSON file using the Ollama API
+def annotate_json(data):
+    response = requests.post(ollama_api_url, json=data)
+    response.raise_for_status()
+    return response.json()['annotation']
 
 # Function to update JSON metadata with annotations
 def update_metadata(json_path, annotation):
@@ -75,18 +74,9 @@ def process_folder(folder_path, git_repo_path):
                 json_path = os.path.join(root, file)
                 print(f"Processing {json_path}")
                 try:
-                    # Find the corresponding image file for the JSON file
-                    image_path = None
-                    for ext in ['.jpg', '.jpeg', '.png']:
-                        possible_image_path = os.path.splitext(json_path)[0] + ext
-                        if os.path.exists(possible_image_path):
-                            image_path = possible_image_path
-                            break
-                    if image_path is None:
-                        print(f"No corresponding image found for {json_path}")
-                        continue
-
-                    annotation = annotate_image(image_path)
+                    with open(json_path, 'r') as json_file:
+                        data = json.load(json_file)
+                    annotation = annotate_json(data)
                     if update_metadata(json_path, annotation):
                         print(f"Updated {json_path} with annotation.")
                         any_changes = True
