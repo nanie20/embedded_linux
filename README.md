@@ -61,3 +61,21 @@ The `destination` folder consists of the photos and JSON files received by the w
 The `lib` folder holds the libraries for the local website.
 
 The `public` folder holds two svg files that come with the Node.js framework.
+
+## The rain_detect branch
+
+The rain_detect branch consists of a folder called `images` and `rain_detect_scripts`.
+
+The `rain_detect_scripts` folder contains the following files:
+- pico_read.sh
+- wiper_pub.sh
+
+These script contains the logic for the MQTT broker and makes the rain detector wipe when rain is detected.
+
+## The raspberrypi branches
+
+The raspberrypi branch consists of a folder called `animal`, which contains the following folder and file:
+- esp8266_count_mqtt_modified (folder)
+- camera_run.sh
+
+The script takes photos which are saved in subdirectories.
