@@ -44,6 +44,20 @@ The `app` folder holds the following folders and files:
 
 It contains the logic of the local website.
 
+## The drone branch
+
+The drone branch consists of a folder called `drone` which holds the following folder and files:
+- destination (folder)
+- LogWifi.db
+- drone.sh
+- drone_copy_photos.sh
+- install_sqlite.sh
+- start_drone.sh
+- table.sql
+- wifi_logging.sh
+- 
+The `destination` folder consists of the photos and JSON files received by the wildlife camera.
+
 The `lib` folder holds the libraries for the local website.
 
 The `public` folder holds two svg files that come with the Node.js framework.
