@@ -1,4 +1,4 @@
-# The local website
+## The local website
 This branch contains the logic and styling for the local website. The website receives data from the node server through API's and creates the front-end.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
