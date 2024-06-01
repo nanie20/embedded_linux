@@ -1,4 +1,13 @@
 # The structure of the repository
+The `main` branch consists of all the files and folders from all the other branches. The repository has seven branches named:
+- Cloud
+- Node_server
+- Website
+- drone
+- rain_detect
+- raspberrypi
+
+## The branches
 
 The Cloud branch consists of the folders: `cloud` and `json`. 
 
