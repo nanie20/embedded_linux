@@ -55,7 +55,7 @@ The drone branch consists of a folder called `drone` which holds the following f
 - start_drone.sh
 - table.sql
 - wifi_logging.sh
-- 
+  
 The `destination` folder consists of the photos and JSON files received by the wildlife camera.
 
 The `lib` folder holds the libraries for the local website.
@@ -76,6 +76,6 @@ These script contains the logic for the MQTT broker and makes the rain detector 
 
 The raspberrypi branch consists of a folder called `animal`, which contains the following folder and file:
 - esp8266_count_mqtt_modified (folder)
-- camera_run.sh
+- take_photo.sh
 
 The script takes photos which are saved in subdirectories.
