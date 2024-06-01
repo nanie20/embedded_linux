@@ -1,0 +1,15 @@
+{
+    "File Name": "101323_108.jpg",
+    "Create Date": "2024-05-22 10:13:23.110+02:00",
+    "Create Seconds Epoch": 1716365603.1149077,
+    "Trigger": "Motion",
+    "Subject Distance": "infm",
+    "Exposure Time": "1/31",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. Please share the image with me, and I'll be happy to describe it for you!"
+    }
+}

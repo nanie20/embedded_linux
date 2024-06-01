@@ -1,0 +1,15 @@
+{
+    "File Name": "095034_629.jpg",
+    "Create Date": "2024-05-22 09:50:34.632+02:00",
+    "Create Seconds Epoch": 1716364234.6363358,
+    "Trigger": "Time",
+    "Subject Distance": "0.3135779241 mm",
+    "Exposure Time": "1/31",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. Please share the image, and I'll be happy to describe it for you!"
+    }
+}

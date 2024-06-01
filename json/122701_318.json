@@ -1,0 +1,15 @@
+{
+    "File Name": "122701_318.jpg",
+    "Create Date": "2024-05-31 12:27:01.320+02:00",
+    "Create Seconds Epoch": 1717151221.3249557,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you haven't provided an image for me to describe. Please share the image URL or attach the file, and I'll be happy to help you describe it!"
+    }
+}

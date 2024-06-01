@@ -1,0 +1,15 @@
+{
+    "File Name": "122752_580.jpg",
+    "Create Date": "2024-05-31 12:27:52.583+02:00",
+    "Create Seconds Epoch": 1717151272.58979,
+    "Trigger": "Motion",
+    "Subject Distance": "1 mm",
+    "Exposure Time": "1/23",
+    "ISO": 200,
+    "COPIED": true,
+    "Destination": "./destination",
+    "Annotation": {
+        "Source": "Ollama",
+        "Text": "I apologize, but you didn't provide an image. Please share the image or describe it to me, and I'll do my best to help you with it."
+    }
+}
