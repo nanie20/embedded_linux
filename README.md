@@ -72,7 +72,7 @@ The `rain_detect_scripts` folder contains the following files:
 
 These script contains the logic for the MQTT broker and makes the rain detector wipe when rain is detected.
 
-## The raspberrypi branches
+## The raspberrypi branch
 
 The raspberrypi branch consists of a folder called `animal`, which contains the following folder and file:
 - esp8266_count_mqtt_modified (folder)
