@@ -1,16 +1,2 @@
-# embedded_linux
-For the project we have to do in Embedded Linux.
-
-## The Drone
-Requirement M:
-
-When the "wifi_logging.sh" bash script is run it prints out the following output:
-
-![alt text](images/wifi_output.png)
-
-The output contains:
-1. The link quality
-2. The signal level
-3. The current timestamp
-
-This output is stored in an SQLite3 database called logWifi.db. 
+# The node server
+This branch contains the code for the node server that runs on the wildlife camera (Raspberry Pi). It sents the images and their corresponding metadata from the wildlife camera.
