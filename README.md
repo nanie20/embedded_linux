@@ -7,7 +7,7 @@ The `main` branch consists of all the files and folders from all the other branc
 - rain_detect
 - raspberrypi
 
-## The branches
+## The Cloud branch
 
 The Cloud branch consists of the folders: `cloud` and `json`. 
 
@@ -18,6 +18,8 @@ The `cloud` folder holds the following files:
 The `json` folder holds the following files:
 - JSON files (metadata for the images)
 
+## The Node_server branch
+
 The Node_server branch consist of the folder: `wildlife_camera`.
 
 The `wildlife_camera` folder holds the following files:
@@ -26,6 +28,8 @@ The `wildlife_camera` folder holds the following files:
 - server.js
 
 It also holds a folder called `node_modules` which contains all the modules for the node server.
+
+## The Website branch
 
 The Website branch consists of the folders: `app`, `lib`, and `public`.
 It also consists of the files: next.config.mjs, package-lock.json, package.json, postcss.config.mjs, tailwind.config.ts, and tsconfig.json.
